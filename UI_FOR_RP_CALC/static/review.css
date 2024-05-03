@@ -1,0 +1,121 @@
+img{
+    background-color: white;
+    box-shadow: 0 0 5px 5px white;
+    margin-top: 10pt;
+    margin-left: 30pt;
+    width: 100pt;
+    margin-bottom: 10pt;
+}
+.top-bar{
+    display: flex;
+    align-items: flex-end;
+    background-color: grey;
+}
+.reviewer-marque{
+    margin-left: 30pt;
+    font-size: 40pt;
+    margin-bottom: 38pt;
+}
+
+.col1{
+    display: flex;
+    float: left;
+    width: 25%;
+    height:300pt;
+    justify-content: center;
+    align-items: center;
+    margin-right:10pt;
+    /*border-style: dotted;*/
+    box-shadow: 0 0 8px 8px rgb(81, 80, 81);
+    border-radius: 10pt;
+    border-width: 10px;
+}
+
+.col2{
+    display: flex;
+    width: 25%;
+    height:300pt;
+    overflow: hidden;
+    box-shadow: 0 0 8px 8px rgb(81, 80, 81);
+    justify-content: center;
+    border-radius: 10pt;
+    align-items: center;
+}
+
+.details{
+    display: flex; 
+    width: 95%;
+    height: 95%;
+    background-color: aliceblue;
+    border-style: double;
+    border-radius: 20pt;
+    justify-content: center;
+    align-items: center;
+}
+
+.entry{
+    margin-left: 0pt;
+    display: flex; 
+    width: 95% ;
+    height: 95%;
+    background-color: aliceblue;
+    border-style: double;
+    border-radius: 20pt;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.pid{
+    margin-bottom: 20pt;
+    margin-top: 20pt;
+
+}
+
+.pid-enter-button{
+    border-radius: 5pt;
+    height: 30pt;
+    width: 35pt;
+    box-shadow: 30pt;
+}
+
+.pid-input{
+    height: 30pt;
+    width: 25%;
+    border-radius: 5pt;
+}
+.stud-under-pid{
+    width: 70%;
+    height: 30pt;
+    border-radius: 10pt;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+table,th,td{
+    border: 1pt solid;
+    border-collapse: collapse;
+}
+
+.submit-btn{
+    margin-left: 10pt;
+    width: 100pt;
+    height: 40pt;
+    border-radius: 20pt;
+    margin-left: 20pt;
+}
+
+.nav-bar{
+
+    display: flex;
+    justify-content: end;
+    background-color: rgb(13, 13, 15,0.7);
+}
+.nav-btn{
+    font-size: larger;
+    width: 100pt;
+    height: 40pt ;
+    margin-left: 20pt;
+    border-radius: 20pt;
+}
+
