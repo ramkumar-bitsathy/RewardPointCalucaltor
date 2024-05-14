@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<nav class="nav-bar">
+    <button class="nav-btn"><a href="/admin/">ADMIN</a> </button>
+    <button class="nav-btn"><a href="/reviewer_page/">Review</a></button>
+    <button class="nav-btn"><a href="/">Logout</a></button> 
+</nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin_page.css' %}">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="{% static 'logo.png' %}">
+        <marquee scrollamount=30 class="reviewer-marque">Reviewer's Page - Reward point calculation portal - Technical Approval Committee</marquee>
+    </div>
+    <hr>
+    
+    <center>
+        <div class="search-div">
+            <form method="post">
+                <input type="text" class="search-bar" name="search-bar">
+                <input type="submit" class="search-btn" name="search-btn">
+            </form>
+        </div>
+    </center>
+    <div class="table-div">
+        <table class="admin-table">
+            <div class="header">
+                <tr>
+                    <th>PID</th>
+                    <th>Student Name</th>
+                    <th>Roll Number</th>
+                    <th>Project</th>
+                    <th>Initial Submission</th>
+                    <th>Final Submission</th>
+                    <th>Plagiarism</th>
+                    <th>Reviewer Mark</th>
+                    <th>Team Communication</th>
+                    <th>Worklog</th>
+                    <th>Review Status</th>
+                    <th>edit</th>
+                </tr>
+        
+            </div>
+                {% for current_detail in marks %}
+
+                <tr>
+                    <td>{{current_detail.PID}}</td>
+                    <td>{{current_detail.Student_Name}}</td>
+                    <td>{{current_detail.Student_RollNo}}</td>
+                    <td>{{current_detail.Project_Name}}</td>
+                    <td>{{current_detail.Initial_submission}}</td>
+                    <td>{{current_detail.Final_submission}}</td>
+                    <td>{{current_detail.Plagiarism}}</td>
+                    <td>{{current_detail.Reviewer_Mark}}</td>
+                    <td>{{current_detail.Team_communication_mark}}</td>
+                    <td>{{current_detail.Worklog}}</td>
+                    <td>Pending</td>
+                    <td><button class="edit">e</button></td>
+                </tr>
+
+                {% endfor %}
+
+            
+        </table>
+    </div>
+    
+
+</body>
+</html>
