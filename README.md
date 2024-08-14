@@ -1,2 +1,3 @@
 # RewardPointCalucaltor
-Development on process...
+1) Requirement Gathering --- COMPLETED
+2) Design --- IN PROGRESS
