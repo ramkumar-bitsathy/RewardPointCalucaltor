@@ -1,0 +1,61 @@
+.login{
+    background-color:rgba(223, 239, 46, 0.6)  ;
+    width: 400pt;
+    height:260pt;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 0 0 2px 2px  rgba(1, 87, 94, 0.6);
+    margin-left:auto;
+    margin-top:5%;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+.login-heading{
+    margin-left: 30pt;
+}
+.tac-name-marque{
+    font-size:50pt;
+    scroll-behavior: smooth;
+}
+.top-bar{
+    display: flex;
+    align-items: flex-end;
+}
+
+img{
+    width: 100pt;
+}
+
+body{
+    background-color: beige;
+}
+
+.mail{
+    height: 40pt;
+    box-sizing: border-box;
+    width:300pt;
+    border-radius: 15pt;
+    margin-bottom: 20pt;
+}
+.password{
+    height: 40pt;
+    box-sizing: border-box;
+    width: 300pt;
+    border-radius: 15pt;
+    margin-bottom: 25pt;
+}
+label{
+    font-style: italic;
+    
+}
+.login-btn{
+    justify-content: center;
+    width:80pt;
+    height:30pt;
+    border-radius: 30pt;
+    margin-left: 35%;
+    font-size: 15pt;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

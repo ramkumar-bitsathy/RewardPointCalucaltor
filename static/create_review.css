@@ -1,0 +1,47 @@
+img{
+    background-color: white;
+    box-shadow: 0 0 5px 5px white;
+    margin-top: 10pt;
+    margin-left: 30pt;
+    width: 100pt;
+    margin-bottom: 10pt;
+}
+.top-bar{
+    display: flex;
+    align-items: flex-end;
+    background-color: grey;
+}
+.reviewer-marque{
+    margin-left: 30pt;
+    font-size: 40pt;
+    margin-bottom: 38pt;
+}
+
+.create-review-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    background-color: aquamarine;
+    border-radius: 20pt;
+    border-width: 5pt;
+    width: 400pt;
+    height:260pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 5px blue;
+}
+
+.pid-input{
+    width:100pt;
+    height: 30pt;
+    border-radius: 5pt;
+}
+.enter{
+    width: 40pt;
+    height: 30pt;
+    border-radius: 5pt;
+}
