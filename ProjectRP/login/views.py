@@ -1,9 +1,19 @@
+
 from django.shortcuts import render,redirect
 #from django.contrib.auth import authenticate,login
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from .models import reviewer,team_admin,Marks,PID
 
 LOGGEDIN = False
+
+def add_to_session(request,key,value):
+    request.session[key] = value
+    print("Added to session")
+
+def get_from_session(request,key):
+    return request.session.get(key,"Not Found")
+
+
 # Create your views here.
 @csrf_exempt
 def login_view(request):
@@ -61,32 +71,51 @@ def admin_page(request):
 @csrf_exempt
 def reviewer_page(request):
     if request.method == 'POST':
-        
-        R1 = float(request.POST.get('R1'))
-        R2 = float(request.POST.get('R2'))
-        R3 = float(request.POST.get('R3'))
-        R4 = float(request.POST.get('R4'))
-        R5 = float(request.POST.get('R5'))
-        R6 = float(request.POST.get('R6'))
-        R7 = float(request.POST.get('R7'))
-        R8 = float(request.POST.get('R8'))
-        R9 = float(request.POST.get('R9'))
-        R10 =float( request.POST.get('R10'))
-        reviewer_mark_total = sum([R1,R2,R3,R4,R5,R6,R7,R8,R9,R10])
-        print("Reviewer mark: ",reviewer_mark_total)
+        if request.POST.get('form-id') == "mark-form":
+            R1 = float(request.POST.get('R1'))
+            R2 = float(request.POST.get('R2'))
+            R3 = float(request.POST.get('R3'))
+            R4 = float(request.POST.get('R4'))
+            R5 = float(request.POST.get('R5'))
+            R6 = float(request.POST.get('R6'))
+            R7 = float(request.POST.get('R7'))
+            R8 = float(request.POST.get('R8'))
+            R9 = float(request.POST.get('R9'))
+            R10 =float( request.POST.get('R10'))
+            reviewer_mark_total = sum([R1,R2,R3,R4,R5,R6,R7,R8,R9,R10])
+            print("Reviewer mark: ",reviewer_mark_total)
+    
+            T1 = float(request.POST.get('T1'))
+            T2 = float(request.POST.get('T2'))
+            T3 = float(request.POST.get('T3'))
+            T4 = float(request.POST.get('T4'))
+            T5 = float(request.POST.get('T5'))
+            T6 = float(request.POST.get('T6'))
+            team_communication_total = sum([T1,T2,T3,T4,T5,T6])
+            print("Team comm: ",team_communication_total)
 
-        
-        
-        T1 = float(request.POST.get('T1'))
-        T2 = float(request.POST.get('T2'))
-        T3 = float(request.POST.get('T3'))
-        T4 = float(request.POST.get('T4'))
-        T5 = float(request.POST.get('T5'))
-        T6 = float(request.POST.get('T6'))
-        team_communication_total = sum([T1,T2,T3,T4,T5,T6])
-        print("Team comm: ",team_communication_total)
-        
-    return render(request,'reviewer_page.html')
+        if request.POST.get('form-id') == "pid-form":
+            pid_from_form = request.POST.get('pids')
+            roll_no_with_pid = Marks.objects.filter(PID=pid_from_form).values('Student_RollNo')
+            print(roll_no_with_pid)
+            temp_roll_no = set()
+            for roll_no in roll_no_with_pid:
+                temp_roll_no.add(list(roll_no.values())[0])
+            return render(request,'reviewer_page.html',{'pids':get_from_session(request,'pids'),'roll_nos':list(temp_roll_no)})
+            
+        if request.POST.get('form-id') == "student-details-form":
+            pass
+
+            
+    pids = PID.objects.values('PID')
+    print(pids)
+    temp = set()
+    for pid in pids:
+        temp.add(list(pid.values())[0])
+    add_to_session(request,"pids",list(temp))
+    
+    return render(request,'reviewer_page.html',{'pids':list(temp)})
+
 
 
 @csrf_exempt

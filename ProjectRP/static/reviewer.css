@@ -26,6 +26,7 @@ img{
     align-items: center;
     margin-right:10pt;
     /*border-style: dotted;*/
+    margin-bottom: 5px;
     box-shadow: 0 0 8px 8px rgb(81, 80, 81);
     border-radius: 10pt;
     border-width: 10px;
@@ -58,7 +59,7 @@ img{
 .entry{
     margin-left: 10pt;
     display: flex; 
-    width: 47% ;
+    width: 95% ;
     height: 95%;
     background-color: aliceblue;
     border-style: double;
