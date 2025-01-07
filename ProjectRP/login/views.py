@@ -97,14 +97,21 @@ def reviewer_page(request):
         if request.POST.get('form-id') == "pid-form":
             pid_from_form = request.POST.get('pids')
             roll_no_with_pid = Marks.objects.filter(PID=pid_from_form).values('Student_RollNo')
-            print(roll_no_with_pid)
             temp_roll_no = set()
             for roll_no in roll_no_with_pid:
                 temp_roll_no.add(list(roll_no.values())[0])
-            return render(request,'reviewer_page.html',{'pids':get_from_session(request,'pids'),'roll_nos':list(temp_roll_no)})
+            add_to_session(request,key="roll_nos_in_selected_pid",value=list(temp_roll_no))
+            return render(request,'reviewer_page.html',{'pids':get_from_session(request,'pids'),'roll_nos':get_from_session(request,key="roll_nos_in_selected_pid")})
             
         if request.POST.get('form-id') == "student-details-form":
-            pass
+            stud_roll_no = request.POST.get('stud-under-pid')
+            print(stud_roll_no)
+            student_details = Marks.objects.filter(Student_RollNo = stud_roll_no).values()
+            print(student_details)
+            add_to_session(request,key="current_student_in_review",value=stud_roll_no)
+            add_to_session(request,key="details_of_current_student",value=list(student_details)[0])
+            return render(request,'reviewer_page.html',{'pids':get_from_session(request,'pids'),'roll_nos':get_from_session(request,key="roll_nos_in_selected_pid"),'student_details':get_from_session(request,key="details_of_current_student")})
+
 
             
     pids = PID.objects.values('PID')

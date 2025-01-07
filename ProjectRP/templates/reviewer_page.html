@@ -42,7 +42,7 @@
         <div class="col1">
             <div class="details">
                 <div class="inside-details">
-                    <form action="{% url 'reviewer_page' %}">
+                    <form method="POST" action="{% url 'reviewer_page' %}">
                         <select name="stud-under-pid" class="stud-under-pid">
                             {% for roll_no in roll_nos %}
                                 <option value="{{ roll_no }}">{{ roll_no }}</option>
@@ -51,42 +51,45 @@
                         </select>
                         <button type="submit" name="form-id" value="student-details-form" class="pid-enter-button">Enter</button>
                     </form>
-                    <h3>Name: Ramkumar K</h3>
-                    <h3>Roll No: 7376222IT231</h3>
-                    <table class="marks-table">
-                        <tr>
-                            <th>Modules</th>
-                            <th>Marks</th>
-                        </tr>
-                        <tr>
-                            <td>Initial Submission</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Final Submission</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>plagiarism</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Review mark</td>
-                            <td>60</td>
-                        </tr>
-                        <tr>
-                            <td>Team communication</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Worklog</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td><b>Total</b></td>
-                            <td>100</td>
-                        </tr>
-                    </table>
+
+                    {% if student_details %}
+                        <h3>Name: {{student_details.Student_Name}}</h3>
+                        <h3>Roll No: {{student_details.Student_RollNo}} </h3>
+                        <table class="marks-table">
+                            <tr>
+                                <th>Modules</th>
+                                <th>Marks</th>
+                            </tr>
+                            <tr>
+                                <td>Initial Submission</td>
+                                <td>{{student_details.Initial_submission}}</td>
+                            </tr>
+                            <tr>
+                                <td>Final Submission</td>
+                                <td>{{student_details.Final_submission}}</td>
+                            </tr>
+                            <tr>
+                                <td>plagiarism</td>
+                                <td>{{student_details.Plagiarism}}</td>
+                            </tr>
+                            <tr>
+                                <td>Review mark</td>
+                                <td>{{student_details.Reviewer_Mark}}</td>
+                            </tr>
+                            <tr>
+                                <td>Team communication</td>
+                                <td>{{student_details.Team_communication_mark}}</td>
+                            </tr>
+                            <tr>
+                                <td>Worklog</td>
+                                <td>{{student_details.Worklog}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Total</b></td>
+                                <td>100</td>
+                            </tr>
+                        </table>
+                    {% endif %}
                 </div>
             </div>
         </div>
