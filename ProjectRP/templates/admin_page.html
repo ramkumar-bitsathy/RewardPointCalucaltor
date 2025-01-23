@@ -3,7 +3,9 @@
 <nav class="nav-bar">
     <button class="nav-btn"><a href="/admin/">ADMIN</a> </button>
     <button class="nav-btn"><a href="/reviewer_page/">Review</a></button>
-    <button class="nav-btn"><a href="/">Logout</a></button> 
+    <form method='POST'>
+        <button type="submit" name = "form-id" value="logout-btn" class="nav-btn">Logout</button>
+    </form>
 </nav>
 <html lang="en">
 <head>
@@ -23,7 +25,7 @@
         <div class="search-div">
             <form method="post">
                 <input type="text" class="search-bar" name="search-bar">
-                <input type="submit" class="search-btn" name="search-btn">
+                <button type="submit" value="search-btn" class="search-btn" name="form-id">Search</button>
             </form>
         </div>
     </center>

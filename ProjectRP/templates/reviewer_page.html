@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <nav class="nav-bar">
-    <form method='post'>
-        <button name = "nav-btn" class="nav-btn"><a name="nav-btn" href="/">Logout</a></button>
+    <form method='POST'>
+        <button type="submit" name = "form-id" value="logout-btn" class="nav-btn">Logout</button>
     </form>
 </nav>
 <html lang="en">
@@ -86,7 +86,7 @@
                             </tr>
                             <tr>
                                 <td><b>Total</b></td>
-                                <td>100</td>
+                                <td>{{student_details.Total}}</td>
                             </tr>
                         </table>
                     {% endif %}
